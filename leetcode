@@ -1,5 +1,3 @@
-package leetcode;
-
 /*
  * 1. 两数之和
  */
@@ -33,38 +31,18 @@ package leetcode;
  * 只会存在一个有效答案
  * </P>
  */
-
-import org.junit.Test;
-
-import java.util.Arrays;
-
-
-public class leetcode01 {
-
-
-
-        @Test //@Test的使用 是该方法可以不用main方法调用就可以测试出运行结果，是一种测试方法
-              //一般函数都需要有main方法调用才能执行，注意被测试的方法必须是public修饰的
-    public void test() {
-            int[] nums = new int[]{2, 7, 11, 15};
-            int target = 9;
-            System.out.println(Arrays.toString(twoSum(nums, target)));
-        }
-
-
-        public int[] twoSum(int[] nums, int target) {
-
-            for (int i = 0; i < nums.length; i++) {
-                for (int j = 0; j < nums.length; j++) {
-                    if (i != j && nums[i] + nums[j] == target) {
-                        return new int[]{i, j};
-                    }
-                }
+题解：
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        for(int i = 0;i < n;i++){
+            for(int j = i+1;j<n;j++){
+                if(nums[i]+nums[j]==target){
+                  return new int[]{i,j};
+                }               
             }
-            return null;
-            /*return 就是跳出方法...
-            return null也是跳出方法并返回null..
-            也就是说return null必须用在返回值不是void的方法里面..
-            return可以用在任何方法里面*/
         }
+        return new int[0];
     }
+}
+
